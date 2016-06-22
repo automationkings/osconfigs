@@ -1,0 +1,8 @@
+---
+- hosts: webservers
+  remote_user: root
+  tasks:
+  - name: ensure rsyslog is installed 
+    yum: name=rsyslog state=latest
+  - name: ensure rsyslog is running and enabled at boot 
+    service: name=rsyslog state=started enabled=yes
